@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css" integrity="sha512-5fsy+3xG8N/1PV5MIJz9ZsWpkltijBI48gBzQ/Z2eVATePGHOkMIn+xTDHIfTZFVb9GMpflF2wOWItqxAP2oLQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/style.css">
+    <title>Fragrance List</title>
+    <style>
+        .success, .error {
+            color: white;
+            padding: 5px;
+            margin: 5px 0 15px 0;
+        }
+        .success {
+            background: green;
+        }
+        .error {
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Add Fragrance</h1>
+        <form id="fragrance-form">
+            <div>
+                <label for="fragrance-name">Fragrance Name</label>
+                <input type="text" id="name" class="u-full-width">
+            </div>
+            <div>
+                <label for="fragrance-brand">Brand</label>
+                <input type="text" id="brand" class="u-full-width">
+            </div>
+            <div>
+                <label for="fragrance-category">Category</label>
+                <input type="text" id="category" class="u-full-width">
+            </div>
+            <div>
+                <input type="submit" value="submit" class="u-full-width">
+            </div>
+        </form>
+        <table class="u-full-width">
+            <thead>
+                <tr>
+                    <th>Fragrance</th>
+                    <th>Brand</th>
+                    <th>Category</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody id="fragrance-list">
+
+            </tbody>
+
+        </table>
+
+    </div>
+    <script src="javascript/main.js"></script>
+</body>
+</html>
