@@ -1,3 +1,4 @@
+// Main fragrance class
 class Fragrance {
     constructor(name, brand, category) {
     this.name = name
@@ -6,11 +7,12 @@ class Fragrance {
    }     
 }
 
+
 class UI {
     addFragrance(fragrance) {
         const list = document.getElementById('fragrance-list')
         const row = document.createElement('tr')
-
+    
         row.innerHTML = `
         <td>${fragrance.name}</td>
         <td>${fragrance.brand}</td>
@@ -19,8 +21,8 @@ class UI {
 
         `;
         list.appendChild(row);
+       
     }
-    
     showAlert(message, className) {
         const div = document.createElement('div')
 
@@ -47,27 +49,30 @@ class UI {
         document.getElementById('brand').value = '';
         document.getElementById('category').value = '';
     }
+    
 }
 
-document.getElementById('fragrance-form').addEventListener('submit', function(e) {
+document.getElementById('fragrance-form').addEventListener('submit', function(added) {
     const name = document.getElementById('name').value
     const brand = document.getElementById('brand').value 
     const category = document.getElementById('category').value
-    
-    const newFragrance = new Fragrance(name,brand,category);
-
+    let newFragrance = new Fragrance(name,brand,category);
     const ui = new UI();
+    let storage = JSON.stringify(newFragrance)
+    localStorage.setItem('added', storage)
+    let storage2 = JSON.parse(localStorage.getItem('added'))
 
     if (name === '' || brand === '' || category === '') {
         ui.showAlert('Please fill in all fields', 'Error')
     } else {
-        ui.addFragrance(newFragrance);
+        ui.addFragrance(newFragrance) 
 
         ui.showAlert('Fragrance Added', 'Success');
 
         ui.clearFields()
     }
-    e.preventDefault();
+
+    added.preventDefault();
 })
 
 document.getElementById('fragrance-list').addEventListener('click', function(e) {
@@ -78,3 +83,10 @@ document.getElementById('fragrance-list').addEventListener('click', function(e) 
 
     e.preventDefault()
 });
+
+
+
+// localStorage.getItem('myObj');
+
+
+// console.log(storage);
